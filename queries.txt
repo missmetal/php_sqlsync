@@ -1,0 +1,4 @@
+CKS116A				80	ODV-090R15B17K	32	4	2	No	
+CKS116B				210	ODV-090R15B17K	32	0	6	No	
+
+INSERT INTO `antenas`(`Sector`, `Estado`, `Fecha_Estado`, `Tipo_Instalacion`, `Azimut`, `Modelo_Antena`, `Altura`, `Tilt_Mecanico`, `Til_Electrico`, `Tilt_Electrico_Remoto`, `Observaciones`, `ID`) VALUES ('CKS116B','',NULL,'','80',	'ODV-090R15B17K', 32,	4,	2,	'No','hola', 1);
