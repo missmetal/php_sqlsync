@@ -68,7 +68,7 @@ location.reload();
 Android SQLite and MySQL Sync - View antenas
 </div>
 </center>
-<?php
+<!--<?php
     include_once 'db_functions.php';
     $db = new DB_Functions();
     $antenas = $db->getAllRows();
@@ -105,6 +105,6 @@ echo "<img src='img/white.png'/>";
 <div id="norecord">
 No records in MySQL DB
 </div>
-<?php } ?>
+<?php } ?> -->
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php 
 /**
- * Insert User into DB
+ * Inserta en la base desde un form
  */ ?>
 <style>
 body {
@@ -39,29 +39,60 @@ text-align: center;
 Android SQLite and MySQL Sync - Add Antenas
 </div>
 </center>
-<form method="POST">
-<table>
-<tr>
-<td>Name:</td><td><input name="estado" /></td>
-</tr>
-<tr><td colspan="2" align="center"><input type="submit" value="Add"/></td></tr>
-</table>
-</form>
+  <div class="content">
+    <form method="POST">
+        Sector: <input type="text" name="sector" />
+        Estado: <input type="text" name="estado" />
+        Fecha Estado: <input type="date" name="f_estado" />
+        Tipo_Instalacion: <input type ="text" name="tipo_instalacion" />
+        Azimut: <input type ="text" name="azimut" />
+        Modelo Antena: <input type ="text" name="modelo_antena" />
+        Altura: <input type ="text" name="altura" />
+        Tilt Mecanico: <input type ="text" name="tilt_mecanico" />
+        Tilt Electrico: <input type ="text" name="Til_Electrico" />
+        Tilt Electrico Remoto: <input type ="text" name="tilt_electrico_remoto" />
+        Observaciones: <input type ="text" name="observaciones" />
+
+        <input type="submit" value="Insertar">
+    </form>
+  </div>
+
 <?php
-include_once './db_functions.php';
-//Create Object for DB_Functions clas
-if(isset($_POST["estado"]) && !empty($_POST["estado"])){
-$db = new DB_Functions(); 
-//Store User into MySQL DB
-$antena = $_POST["estado"];
-$res = $db->storeAntena($antena);
-    //Based on inserttion, create JSON response
-    if($res){ ?>
-         <div id="msg">Insertion successful</div>
-    <?php }else{ ?>
-         <div id="msg">Insertion failed</div>
-    <?php }
-} else{ ?>
- <div id="msg">Please enter name and submit</div>
+
+//HACER LA CONEXION
+require 'db_connect.php'
+
+// Valido datos
+if(isset($_POST["id"]) && !empty($_POST["id"]) && isset($_POST["sector"]) && !empty($_POST["sector"]))
+{
+
+
+  //Store User into MySQL DB
+  $sector = $_POST["sector"];
+  $estado = $_POST["estado"];
+  $f_estado = $_POST["f_estado"];
+  $tipo_instalacion = $_POST["tipo_instalacion"];
+  $azimut = $_POST["azimut"];
+  $modelo_antena = $_POST["modelo_antena"];
+  $altura = $_POST["altura"];
+  $tilt_mecanico = $_POST["tilt_mecanico"];
+  $Til_Electrico = $_POST["Til_Electrico"];
+  $tilt_electrico_remoto = $_POST["tilt_electrico_remoto"];
+  $observaciones = $_POST["observaciones"];
+
+ $result = mysql_query("INSERT INTO antenas VALUES('$sector','$estado', '$f_estado', '$tipo_instalacion', '$azimut', '$modelo_antena', '$altura', '$tilt_mecanico', '$Til_Electrico', '$tilt_electrico_remoto', '$observaciones')"); 
+ 
+        
+      // FALTA CREAR EL JSON
+      if($result){ ?>
+           <div id="msg">La antena se ha insertado exitosamente</div>
+      <?php }else{ ?>
+           <div id="msg">Error al insertar</div>
+      <?php }
+    } 
+    else{ ?>
+
+      <div id="msg">Insertar datos</div>
+
 <?php }
 ?>

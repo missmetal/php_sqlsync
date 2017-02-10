@@ -2,6 +2,8 @@
 /**
  * DB operations functions
  */
+
+/***                   ESTO VUELA PORQUE COMPLICA TODO   ***/
 class DB_Functions {
  
     private $db;
@@ -14,11 +16,7 @@ class DB_Functions {
         $this->db = new DB_Connect();
         $this->db->connect();
     }
- 
-    // destructor
-    function __destruct() {
- 
-    }
+
  
     /**
      * Storing new user
@@ -26,7 +24,7 @@ class DB_Functions {
      */
     public function storeAntena($antena) {
         // Insert user into database
-        $result = mysql_query("INSERT INTO user(Name) VALUES('$antena')");
+        $result = mysql_query("INSERT INTO antenas VALUES('$antena')");
  
         if ($result) {
             return true;
