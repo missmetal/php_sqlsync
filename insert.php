@@ -60,7 +60,7 @@ Android SQLite and MySQL Sync - Add Antenas
 <?php
 
 //HACER LA CONEXION
-require 'db_connect.php'
+require('db_connect.php');
 
 connect();
 // Valido datos

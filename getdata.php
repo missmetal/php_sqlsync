@@ -1,7 +1,7 @@
 <?php
 
 
-public function getAllRows() {
+function getAllRows() {
         $result = mysql_query("select * FROM antenas");
         return $result;
     }

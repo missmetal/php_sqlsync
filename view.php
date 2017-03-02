@@ -68,36 +68,21 @@ location.reload();
 Android SQLite and MySQL Sync - View antenas
 </div>
 </center>
-<!--<?php
-    include_once 'db_functions.php';
-    $db = new DB_Functions();
-    $antenas = $db->getAllRows();
-    if ($antenas != false)
-        $no_of_antenas = mysql_num_rows($antenas);
-    else
-        $no_of_antenas = 0;
- 
-?>
 <?php
-    if ($no_of_antenas > 0) {
+    require('db_connect.php');
+    include('getdata.php');
+    connect(); 
+    getAllRows();
+
+    //**CARGAR DATOS EN LA TABLA*//
 ?>
 <table>
 <tr id="header"><td>Id</td><td>Username</td></tr>
-<?php
-    while ($row = mysql_fetch_array($antenas)) {
-?> 
+
 <tr>
 <td><span><?php echo $row["ID"] ?></span></td>
 <td><span><?php echo $row["Estado"] ?></span></td>
-<td id="sync"><span>
-<?php 
-if($row["syncsts"])
-{ 
-echo "<img src='img/green.png'/>"; 
-}else { 
-echo "<img src='img/white.png'/>";
-} 
-?></span></td>
+
 </tr>
 <?php } ?>
 </table>
@@ -105,6 +90,6 @@ echo "<img src='img/white.png'/>";
 <div id="norecord">
 No records in MySQL DB
 </div>
-<?php } ?> -->
+<?php } ?> 
 </body>
 </html>

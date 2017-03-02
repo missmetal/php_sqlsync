@@ -1,7 +1,7 @@
 <?php
 
  
-    require_once 'config.php';
+    require('config.php');
  
     // Connecting to database
     function connect() {
