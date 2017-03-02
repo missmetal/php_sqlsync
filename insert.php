@@ -62,6 +62,7 @@ Android SQLite and MySQL Sync - Add Antenas
 //HACER LA CONEXION
 require 'db_connect.php'
 
+connect();
 // Valido datos
 if(isset($_POST["id"]) && !empty($_POST["id"]) && isset($_POST["sector"]) && !empty($_POST["sector"]))
 {
@@ -95,4 +96,6 @@ if(isset($_POST["id"]) && !empty($_POST["id"]) && isset($_POST["sector"]) && !em
       <div id="msg">Insertar datos</div>
 
 <?php }
+
+close();
 ?>

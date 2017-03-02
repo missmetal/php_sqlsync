@@ -1,20 +1,11 @@
 <?php
+
  
-class DB_Connect {
- 
-    // constructor
-    function __construct() {
- 
-    }
- 
-    // destructor
-    function __destruct() {
-        // $this->close();
-    }
+    require_once 'config.php';
  
     // Connecting to database
-    public function connect() {
-        require_once 'config.php';
+    function connect() {
+        
         // connecting to mysql
         $con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
         // selecting database
@@ -25,9 +16,9 @@ class DB_Connect {
     }
  
     // Closing database connection
-    public function close() {
+    function close() {
         mysql_close();
     }
  
-} 
+ connect();
 ?>

@@ -1,10 +1,11 @@
 <?php
-/**
- * Creates Unsynced rows data as JSON
- */
-    include_once 'db_functions.php';
-    $db = new DB_Functions();
-    $antenas = $db->getAllRows();
+
+
+public function getAllRows() {
+        $result = mysql_query("select * FROM antenas");
+        return $result;
+    }
+    
     $a = array();
     $b = array();
     if ($antenas != false){
